@@ -30,7 +30,15 @@ app.get('/json', (req, res) => {
 });
 
 /** 6) Use the .env file to configure the app */
- 
+const dotenv = require('dotenv');
+dotenv.config()
+app.get('/json-uppercase', (req, res) => {
+  if(process.env.MESSAGE_STYLE == 'uppercase') {
+    res.json({'message':'HELLO JSON'});
+  } else {
+    res.json({'message':'Hello json'});
+  }
+});
  
 /** 7) Root-level Middleware - A logger */
 //  place it before all the routes !
