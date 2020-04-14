@@ -1,4 +1,4 @@
-
+var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 
@@ -9,7 +9,7 @@ app.use((req, res, next) => {
 });
 
 // --> 11)  Mount the body-parser middleware  here
-
+bodyParser.urlencoded({extended: false});
 
 /** 1) Meet the node console. */
 console.log("Hello World");
