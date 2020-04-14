@@ -1,6 +1,12 @@
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 var express = require('express');
+const dotenv = require('dotenv');
+dotenv.config()
+
 var app = express();
+
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }); 
 
 // --> 7)  Mount the Logger middleware here
 app.use((req, res, next) => {
@@ -33,8 +39,6 @@ app.get('/json', (req, res) => {
 });
 
 /** 6) Use the .env file to configure the app */
-const dotenv = require('dotenv');
-dotenv.config()
 app.get('/json-uppercase', (req, res) => {
   if(process.env.MESSAGE_STYLE == 'uppercase') {
     res.json({'message':'HELLO JSON'});
