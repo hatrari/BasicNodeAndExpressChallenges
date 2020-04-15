@@ -18,6 +18,14 @@ const Person = require('./models/Person');
 const person = new Person({name:'name', age: 18, favoriteFoods: ['test']});
 person.save().then(res => console.log(res));
 
+te = [
+  {name:'name 18', age: 18, favoriteFoods: ['test']},
+  {name:'name 19', age: 19, favoriteFoods: ['test']}
+];
+
+Person.create(te)
+      .then(res => console.log(res));
+
 // --> 7)  Mount the Logger middleware here
 app.use((req, res, next) => {
   console.log(req.method + ' ' + req.path + '-' + req.ip);
