@@ -27,7 +27,10 @@ Person.create(te);
 
 Person.find().then(res => console.log(res));
 
-Person.findOne({age: 18})
+Person.findOne({age: 19})
+      .then(res => console.log(res));
+
+Person.findById('5e9741b0209b5742443910b1')
       .then(res => console.log(res));
 
 // --> 7)  Mount the Logger middleware here
