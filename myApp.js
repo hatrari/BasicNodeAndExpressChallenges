@@ -27,6 +27,9 @@ Person.create(te);
 
 Person.find().then(res => console.log(res));
 
+Person.findOne({age: 18})
+      .then(res => console.log(res));
+
 // --> 7)  Mount the Logger middleware here
 app.use((req, res, next) => {
   console.log(req.method + ' ' + req.path + '-' + req.ip);
