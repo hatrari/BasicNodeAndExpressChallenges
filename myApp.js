@@ -1,12 +1,22 @@
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config()
 
-var app = express();
+const app = express();
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }); 
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+        .then(() => {
+          console.log('Database connection successful')
+        })
+        .catch(err => {
+          console.error('Database connection error')
+        });
+
+const Person = require('./models/Person');
+const person = new Person({name:'name', age: 18, favoriteFoods: ['test']});
+person.save().then(res => console.log(res));
 
 // --> 7)  Mount the Logger middleware here
 app.use((req, res, next) => {
@@ -19,7 +29,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 /** 1) Meet the node console. */
 console.log("Hello World");
-
 /** 2) A first working Express Server */
 app.get('/hello', (req, res) => {
   res.send('Hello Express');

@@ -6,3 +6,5 @@ const Person = new Schema({
   age: Number,
   favoriteFoods: []
 });
+
+module.exports = mongoose.model('Person', Person);
