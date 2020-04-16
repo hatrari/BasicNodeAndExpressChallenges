@@ -34,6 +34,10 @@ Person.findOne({age: 19})
 Person.updateOne({_id:'5e9741b0209b5742443910b1'}, {favoriteFoods: ['test']})
       .then(res => console.log(res));
 
+      
+Person.findByIdAndUpdate({_id:'5e9741b0209b5742443910b1'}, {favoriteFoods: ['findone']})
+      .then(res => console.log(res));
+
 Person.findById('5e9741b0209b5742443910b1')
       .then(res => console.log(res));
 
