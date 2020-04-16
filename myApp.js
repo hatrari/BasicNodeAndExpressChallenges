@@ -41,7 +41,7 @@ Person.findById('5e9741b0209b5742443910b1')
       .then(res => console.log(res));
 */
 Person.find().then(res => console.log(res.length));
-Person.findByIdAndRemove('5e973ff20c36b055804f9985').then(res => console.log(res));
+Person.findByIdAndRemove('5e974348b67a593e70e3ca0c').exec();
 Person.find().then(res => console.log(res.length));
 // --> 7)  Mount the Logger middleware here
 app.use((req, res, next) => {
