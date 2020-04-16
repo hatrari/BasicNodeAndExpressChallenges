@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 const Person = require('./models/Person');
 const person = new Person({name:'name', age: 18, favoriteFoods: ['test']});
 //person.save().then(res => console.log(res));
-
+/*
 te = [
   {name:'name 18', age: 18, favoriteFoods: ['test']},
   {name:'name 19', age: 19, favoriteFoods: ['test']}
@@ -28,6 +28,10 @@ Person.create(te);
 Person.find().then(res => console.log(res));
 
 Person.findOne({age: 19})
+      .then(res => console.log(res));
+*/
+
+Person.updateOne({_id:'5e9741b0209b5742443910b1'}, {favoriteFoods: ['test']})
       .then(res => console.log(res));
 
 Person.findById('5e9741b0209b5742443910b1')
